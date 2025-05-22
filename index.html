@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite Product Management Mastery Platform</title>
+    <title>Elite Product Management Mastery Course</title>
     <style>
         * {
             margin: 0;
@@ -11,1860 +11,579 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            --warning-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-            --error-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-            --dark-bg: #1a1a2e;
-            --card-bg: rgba(255, 255, 255, 0.95);
-            --text-primary: #2c3e50;
-            --text-secondary: #7f8c8d;
-            --border-radius: 20px;
-            --shadow-light: 0 10px 30px rgba(0, 0, 0, 0.1);
-            --shadow-heavy: 0 20px 60px rgba(0, 0, 0, 0.15);
-        }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            background: var(--primary-gradient);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            color: var(--text-primary);
+            color: #2c3e50;
         }
 
-        .app-container {
-            max-width: 1400px;
+        .container {
+            max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-            min-height: 100vh;
         }
 
-        /* Onboarding Flow */
-        .onboarding {
-            background: var(--card-bg);
-            border-radius: var(--border-radius);
-            padding: 40px;
-            box-shadow: var(--shadow-heavy);
-            margin-bottom: 30px;
-            backdrop-filter: blur(20px);
-        }
-
-        .onboarding h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .persona-selector {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-
-        .persona-card {
-            background: white;
-            border: 3px solid transparent;
-            border-radius: 15px;
-            padding: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .persona-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--primary-gradient);
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
-        }
-
-        .persona-card:hover::before,
-        .persona-card.selected::before {
-            transform: translateX(0);
-        }
-
-        .persona-card:hover,
-        .persona-card.selected {
-            border-color: #667eea;
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-light);
-        }
-
-        .persona-card h4 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: var(--text-primary);
-        }
-
-        .persona-card p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        /* Enhanced Header */
-        .platform-header {
+        .header {
             text-align: center;
             color: white;
             margin-bottom: 40px;
-            position: relative;
         }
 
-        .platform-header h1 {
-            font-size: 3.5rem;
+        .header h1 {
+            font-size: 3rem;
             margin-bottom: 15px;
             text-shadow: 2px 2px 20px rgba(0,0,0,0.3);
-            letter-spacing: -1px;
         }
 
-        .platform-header .subtitle {
+        .header p {
             font-size: 1.3rem;
             opacity: 0.9;
-            font-weight: 300;
-        }
-
-        .user-profile {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            margin: 20px 0;
-            background: rgba(255,255,255,0.1);
-            padding: 15px 25px;
-            border-radius: 50px;
-            backdrop-filter: blur(10px);
-            display: inline-flex;
-        }
-
-        .avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--secondary-gradient);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: white;
-        }
-
-        /* Advanced Progress System */
-        .progress-system {
-            background: rgba(255,255,255,0.1);
-            border-radius: 25px;
-            padding: 25px;
-            margin: 30px 0;
-            backdrop-filter: blur(10px);
-        }
-
-        .progress-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            color: white;
-        }
-
-        .progress-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .stat-card {
-            background: rgba(255,255,255,0.2);
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-            color: white;
-        }
-
-        .stat-value {
-            font-size: 1.8rem;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .stat-label {
-            font-size: 0.8rem;
-            opacity: 0.8;
-        }
-
-        .progress-bar-container {
-            background: rgba(255,255,255,0.2);
-            border-radius: 25px;
-            height: 12px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .progress-bar-fill {
-            background: linear-gradient(90deg, #4CAF50, #81C784, #A5D6A7);
-            height: 100%;
-            border-radius: 25px;
-            transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .progress-bar-fill::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            background: linear-gradient(45deg, transparent 33%, rgba(255,255,255,0.3) 33%, rgba(255,255,255,0.3) 66%, transparent 66%);
-            background-size: 20px 20px;
-            animation: progress-shimmer 1s linear infinite;
-        }
-
-        @keyframes progress-shimmer {
-            0% { transform: translateX(-20px); }
-            100% { transform: translateX(20px); }
-        }
-
-        /* Enhanced Navigation */
-        .module-navigation {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
             margin-bottom: 30px;
         }
 
-        .nav-module {
-            background: rgba(255,255,255,0.1);
-            border: 2px solid rgba(255,255,255,0.2);
-            border-radius: 15px;
-            padding: 20px;
-            cursor: pointer;
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .module-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .nav-module::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .nav-module:hover::before {
-            opacity: 1;
-        }
-
-        .nav-module:hover {
-            transform: translateY(-5px);
-            border-color: rgba(255,255,255,0.5);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-        }
-
-        .nav-module.active {
-            background: rgba(255,255,255,0.2);
-            border-color: rgba(255,255,255,0.6);
-            transform: scale(1.02);
-        }
-
-        .nav-module.completed::after {
-            content: '✓';
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            width: 25px;
-            height: 25px;
-            background: #4CAF50;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 14px;
-        }
-
-        .module-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: white;
-            margin-bottom: 8px;
-        }
-
-        .module-description {
-            font-size: 0.85rem;
-            color: rgba(255,255,255,0.8);
-            line-height: 1.4;
-        }
-
-        .module-progress {
-            margin-top: 12px;
-            height: 4px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 2px;
-            overflow: hidden;
-        }
-
-        .module-progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #4CAF50, #81C784);
-            border-radius: 2px;
-            transition: width 0.3s ease;
-        }
-
-        /* Enhanced Content Area */
-        .content-container {
-            background: var(--card-bg);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow-heavy);
             backdrop-filter: blur(20px);
-            min-height: 800px;
         }
 
-        .module-content {
-            display: none;
-            padding: 40px;
-            animation: fadeInUp 0.6s ease-out;
-        }
-
-        .module-content.active {
-            display: block;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .module-header {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 3px solid #f1f3f4;
+        .module-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
         }
 
         .module-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 15px;
-            background: var(--primary-gradient);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            color: white;
-        }
-
-        .module-header-text h2 {
-            font-size: 2.2rem;
-            margin-bottom: 5px;
-            color: var(--text-primary);
-        }
-
-        .module-header-text p {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-        }
-
-        /* Interactive Learning Components */
-        .learning-path {
-            background: linear-gradient(135deg, #667eea20, #764ba220);
-            border-radius: 15px;
-            padding: 25px;
-            margin: 30px 0;
-            border-left: 5px solid #667eea;
-        }
-
-        .learning-objectives {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            font-size: 3rem;
             margin-bottom: 20px;
         }
 
-        .objective-card {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            border-left: 4px solid #4CAF50;
-            transition: transform 0.2s ease;
-        }
-
-        .objective-card:hover {
-            transform: translateX(5px);
-        }
-
-        .objective-card .icon {
+        .module-card h3 {
             font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-
-        .objective-card h4 {
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-            color: var(--text-primary);
-        }
-
-        .objective-card p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.4;
-        }
-
-        /* Advanced Simulation Components */
-        .pm-simulator {
-            background: linear-gradient(135deg, #ff6b6b10, #4ecdc410);
-            border-radius: 15px;
-            padding: 30px;
-            margin: 30px 0;
-            border: 2px solid #ff6b6b30;
-        }
-
-        .simulator-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-
-        .simulator-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--secondary-gradient);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 20px;
-        }
-
-        .scenario-builder {
-            background: white;
-            border-radius: 12px;
-            padding: 25px;
-            margin: 20px 0;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        }
-
-        .scenario-tabs {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #f1f3f4;
-        }
-
-        .scenario-tab {
-            padding: 12px 20px;
-            border-radius: 8px 8px 0 0;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        .scenario-tab.active {
-            background: var(--primary-gradient);
-            color: white;
-        }
-
-        .scenario-tab:hover:not(.active) {
-            background: #f8f9fa;
-        }
-
-        .decision-matrix {
-            display: grid;
-            grid-template-columns: 1fr 2fr 1fr 1fr;
-            gap: 15px;
-            align-items: center;
-            padding: 15px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            margin: 10px 0;
-            transition: all 0.3s ease;
-        }
-
-        .decision-matrix:hover {
-            background: #e9ecef;
-            transform: translateX(5px);
-        }
-
-        .impact-meter {
-            width: 100%;
-            height: 8px;
-            background: #e9ecef;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .impact-fill {
-            height: 100%;
-            border-radius: 4px;
-            transition: width 0.5s ease;
-        }
-
-        .impact-high { background: linear-gradient(90deg, #ff6b6b, #ee5a52); }
-        .impact-medium { background: linear-gradient(90deg, #feca57, #ff9ff3); }
-        .impact-low { background: linear-gradient(90deg, #48dbfb, #0abde3); }
-
-        /* Real-time Collaboration Simulation */
-        .collaboration-sim {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            margin: 25px 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .team-avatars {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .team-avatar {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 14px;
-            position: relative;
-            cursor: pointer;
-        }
-
-        .team-avatar.engineering { background: linear-gradient(135deg, #667eea, #764ba2); }
-        .team-avatar.design { background: linear-gradient(135deg, #f093fb, #f5576c); }
-        .team-avatar.marketing { background: linear-gradient(135deg, #4facfe, #00f2fe); }
-        .team-avatar.data { background: linear-gradient(135deg, #43e97b, #38f9d7); }
-
-        .team-avatar::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            right: -2px;
-            width: 12px;
-            height: 12px;
-            background: #4CAF50;
-            border: 2px solid white;
-            border-radius: 50%;
-        }
-
-        .chat-simulation {
-            background: #f8f9fa;
-            border-radius: 12px;
-            padding: 20px;
-            height: 300px;
-            overflow-y: auto;
             margin-bottom: 15px;
+            color: #2c3e50;
         }
 
-        .chat-message {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 15px;
-            animation: slideInLeft 0.3s ease;
-        }
-
-        .chat-message.user {
-            flex-direction: row-reverse;
-        }
-
-        .chat-message.user .message-bubble {
-            background: var(--primary-gradient);
-            color: white;
-        }
-
-        @keyframes slideInLeft {
-            from { opacity: 0; transform: translateX(-20px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        .message-bubble {
-            background: white;
-            padding: 12px 16px;
-            border-radius: 18px;
-            max-width: 70%;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            font-size: 0.9rem;
-            line-height: 1.4;
-        }
-
-        .message-input {
-            display: flex;
-            gap: 10px;
-        }
-
-        .message-input input {
-            flex: 1;
-            padding: 12px 16px;
-            border: 2px solid #e9ecef;
-            border-radius: 25px;
-            font-size: 1rem;
-            outline: none;
-            transition: border-color 0.3s ease;
-        }
-
-        .message-input input:focus {
-            border-color: #667eea;
-        }
-
-        .send-btn {
-            background: var(--primary-gradient);
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: transform 0.2s ease;
-        }
-
-        .send-btn:hover {
-            transform: scale(1.05);
-        }
-
-        /* Advanced Assessment System */
-        .assessment-container {
-            background: linear-gradient(135deg, #fa709a10, #fee14010);
-            border-radius: 15px;
-            padding: 30px;
-            margin: 30px 0;
-            border: 2px solid #fa709a30;
-        }
-
-        .assessment-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .assessment-header h3 {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-            color: var(--text-primary);
-        }
-
-        .assessment-type {
-            display: inline-block;
-            padding: 8px 16px;
-            background: var(--secondary-gradient);
-            color: white;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        .question-container {
-            background: white;
-            border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-        }
-
-        .question-number {
-            background: var(--primary-gradient);
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .question-text {
-            font-size: 1.1rem;
-            font-weight: 500;
+        .module-card p {
+            color: #7f8c8d;
             margin-bottom: 20px;
             line-height: 1.5;
         }
 
-        .answer-options {
-            display: grid;
-            gap: 12px;
-        }
-
-        .answer-option {
-            background: #f8f9fa;
-            border: 2px solid transparent;
-            border-radius: 10px;
-            padding: 15px 20px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .answer-option:hover {
-            background: #e9ecef;
-            border-color: #667eea;
-        }
-
-        .answer-option.selected {
-            background: #667eea15;
-            border-color: #667eea;
-        }
-
-        .answer-option.correct {
-            background: #4CAF5015;
-            border-color: #4CAF50;
-        }
-
-        .answer-option.incorrect {
-            background: #f4433615;
-            border-color: #f44336;
-        }
-
-        .option-letter {
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            background: #667eea;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 0.9rem;
-        }
-
-        .explanation {
-            background: #e8f5e8;
-            border-left: 4px solid #4CAF50;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 15px;
-            display: none;
-        }
-
-        .explanation.show {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        /* Framework Workshop */
-        .framework-workshop {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            margin: 30px 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .workshop-tabs {
-            display: flex;
-            gap: 5px;
+        .skills-list {
+            list-style: none;
             margin-bottom: 25px;
-            background: #f1f3f4;
-            padding: 5px;
-            border-radius: 10px;
         }
 
-        .workshop-tab {
-            flex: 1;
-            padding: 12px 20px;
-            text-align: center;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        .workshop-tab.active {
-            background: white;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            color: var(--text-primary);
-        }
-
-        .framework-canvas {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin: 25px 0;
-        }
-
-        .canvas-section {
+        .skills-list li {
             background: #f8f9fa;
-            border-radius: 12px;
-            padding: 20px;
-            border: 2px dashed #dee2e6;
-            transition: all 0.3s ease;
-        }
-
-        .canvas-section:hover {
-            border-color: #667eea;
-            background: #667eea08;
-        }
-
-        .canvas-section h4 {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            color: var(--text-primary);
-        }
-
-        .canvas-section textarea {
-            width: 100%;
-            min-height: 80px;
-            border: none;
-            background: transparent;
-            resize: vertical;
-            font-family: inherit;
+            padding: 8px 12px;
+            margin: 5px 0;
+            border-radius: 15px;
             font-size: 0.9rem;
-            outline: none;
+            color: #495057;
+            border-left: 3px solid #667eea;
         }
 
-        .canvas-section textarea::placeholder {
-            color: #adb5bd;
-            font-style: italic;
-        }
-
-        /* Advanced Button Styles */
         .btn {
-            background: var(--primary-gradient);
+            background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
             border: none;
-            padding: 14px 28px;
+            padding: 12px 25px;
             border-radius: 25px;
             cursor: pointer;
             font-size: 1rem;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
             width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .btn:hover::before {
-            left: 100%;
         }
 
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
         }
 
-        .btn:active {
-            transform: translateY(0);
+        .interactive-demo {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            color: white;
+            text-align: center;
+            backdrop-filter: blur(10px);
         }
 
-        .btn-secondary {
-            background: var(--secondary-gradient);
-            box-shadow: 0 4px 15px rgba(240, 147, 251, 0.4);
+        .demo-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
         }
 
-        .btn-secondary:hover {
-            box-shadow: 0 8px 25px rgba(240, 147, 251, 0.6);
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .btn-success {
-            background: var(--success-gradient);
-            box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
+        .feature-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
         }
 
-        .btn-success:hover {
-            box-shadow: 0 8px 25px rgba(79, 172, 254, 0.6);
-        }
-
-        /* Navigation Controls */
-        .module-navigation-controls {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 25px 40px;
-            background: #f8f9fa;
-            border-top: 1px solid #e9ecef;
-        }
-
-        .nav-info {
-            font-weight: 500;
-            color: var(--text-secondary);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .app-container {
-                padding: 15px;
-            }
-
-            .platform-header h1 {
-                font-size: 2.5rem;
-            }
-
-            .module-navigation {
-                grid-template-columns: 1fr;
-            }
-
-            .module-content {
-                padding: 25px;
-            }
-
-            .framework-canvas {
-                grid-template-columns: 1fr;
-            }
-
-            .progress-stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        /* Loading States */
-        .loading {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(255,255,255,.3);
-            border-radius: 50%;
-            border-top-color: #fff;
-            animation: spin 1s ease-in-out infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        /* Notification System */
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
+        .stats {
             background: white;
-            border-radius: 12px;
-            padding: 16px 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .launch-btn {
+            background: white;
+            color: #f5576c;
+            font-size: 1.3rem;
+            padding: 20px 40px;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: inline-block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .launch-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .testimonial {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .full-course-link {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #4CAF50, #81C784);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.4);
+            transition: all 0.3s ease;
             z-index: 1000;
-            animation: slideInRight 0.3s ease;
-            max-width: 350px;
         }
 
-        @keyframes slideInRight {
-            from { transform: translateX(100%); }
-            to { transform: translateX(0); }
+        .full-course-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(76, 175, 80, 0.6);
         }
 
-        .notification.success {
-            border-left: 4px solid #4CAF50;
-        }
-
-        .notification.warning {
-            border-left: 4px solid #ff9800;
-        }
-
-        .notification.error {
-            border-left: 4px solid #f44336;
-        }
-
-        .notification.info {
-            border-left: 4px solid #2196F3;
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .course-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-section {
+                padding: 30px 20px;
+            }
+            
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+            
+            .full-course-link {
+                position: static;
+                display: block;
+                text-align: center;
+                margin: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="app-container">
-        <!-- Personalized Onboarding -->
-        <div class="onboarding" id="onboarding">
-            <h2>🚀 Welcome to Elite PM Mastery</h2>
-            <p>Let's personalize your learning journey. Tell us about your background:</p>
-            
-            <div class="persona-selector">
-                <div class="persona-card" data-persona="new-pm">
-                    <h4>🌟 Aspiring PM</h4>
-                    <p>New to product management, transitioning from another role, or early in your PM career.</p>
-                </div>
-                <div class="persona-card" data-persona="experienced-pm">
-                    <h4>🚀 Experienced PM</h4>
-                    <p>Have PM experience but want to level up skills and learn advanced frameworks.</p>
-                </div>
-                <div class="persona-card" data-persona="senior-pm">
-                    <h4>👑 Senior PM/Leader</h4>
-                    <p>Leading product teams and want to master strategic thinking and team development.</p>
-                </div>
-                <div class="persona-card" data-persona="entrepreneur">
-                    <h4>💡 Founder/Entrepreneur</h4>
-                    <p>Building your own product and need structured PM knowledge to scale effectively.</p>
-                </div>
-            </div>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Elite Product Management Mastery</h1>
+            <p>Transform your team into world-class Product Managers</p>
+            <p><strong>Interactive • Practical • Results-Driven</strong></p>
+        </div>
 
-            <div style="margin-top: 30px; text-align: center;">
-                <button class="btn" onclick="startPersonalizedJourney()" id="startBtn" disabled>Begin Your PM Journey</button>
+        <div class="interactive-demo">
+            <h2>🎯 Why This Course is Different</h2>
+            <div class="demo-features">
+                <div class="feature-card">
+                    <h4>🎮 Real-World Simulations</h4>
+                    <p>Handle actual PM crises, team conflicts, and strategic decisions</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🤝 Cross-Functional Practice</h4>
+                    <p>Learn to work with engineering, design, marketing, and data teams</p>
+                </div>
+                <div class="feature-card">
+                    <h4>📊 Data-Driven Decisions</h4>
+                    <p>Master metrics, A/B testing, and growth optimization</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🤖 AI-Powered PM Tools</h4>
+                    <p>Leverage AI for research, analysis, and strategic planning</p>
+                </div>
             </div>
         </div>
 
-        <!-- Main Platform Interface -->
-        <div class="platform-interface" id="platformInterface" style="display: none;">
-            <div class="platform-header">
-                <h1>Elite PM Mastery Platform</h1>
-                <p class="subtitle">Master product management through real-world simulations and expert frameworks</p>
-                
-                <div class="user-profile">
-                    <div class="avatar" id="userAvatar">PM</div>
-                    <span id="userPersona">Product Manager</span>
-                    <span>•</span>
-                    <span id="userLevel">Level 1</span>
-                </div>
+        <div class="course-grid">
+            <div class="module-card">
+                <div class="module-icon">🔍</div>
+                <h3>Advanced Product Discovery</h3>
+                <p>Master customer research and problem validation through interactive scenarios and real-world crisis simulations.</p>
+                <ul class="skills-list">
+                    <li>Customer Interview Techniques</li>
+                    <li>Problem-Solution Fit Validation</li>
+                    <li>Jobs-to-be-Done Framework</li>
+                    <li>Continuous Discovery Process</li>
+                </ul>
+                <button class="btn" onclick="showModulePreview('discovery')">Preview Module</button>
             </div>
 
-            <!-- Advanced Progress System -->
-            <div class="progress-system">
-                <div class="progress-header">
-                    <h3>Your Learning Progress</h3>
-                    <div class="progress-percentage">0% Complete</div>
-                </div>
-                
-                <div class="progress-stats">
-                    <div class="stat-card">
-                        <div class="stat-value" id="completedModules">0</div>
-                        <div class="stat-label">Modules Completed</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value" id="timeSpent">0h</div>
-                        <div class="stat-label">Time Invested</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value" id="skillsUnlocked">0</div>
-                        <div class="stat-label">Skills Unlocked</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value" id="frameworksMastered">0</div>
-                        <div class="stat-label">Frameworks Mastered</div>
-                    </div>
-                </div>
-                
-                <div class="progress-bar-container">
-                    <div class="progress-bar-fill" id="overallProgress"></div>
-                </div>
+            <div class="module-card">
+                <div class="module-icon">📈</div>
+                <h3>Growth & Metrics Mastery</h3>
+                <p>Build data-driven growth engines with hands-on funnel analysis and A/B testing simulations.</p>
+                <ul class="skills-list">
+                    <li>SaaS Metrics (ARR, CAC, LTV, Churn)</li>
+                    <li>Funnel Optimization</li>
+                    <li>A/B Testing Design</li>
+                    <li>Product-Led Growth</li>
+                </ul>
+                <button class="btn" onclick="showModulePreview('metrics')">Preview Module</button>
             </div>
 
-            <!-- Enhanced Module Navigation -->
-            <div class="module-navigation" id="moduleNav">
-                <!-- Modules will be dynamically populated -->
+            <div class="module-card">
+                <div class="module-icon">🎯</div>
+                <h3>Strategic Product Thinking</h3>
+                <p>Develop winning product strategies through competitive analysis and market positioning workshops.</p>
+                <ul class="skills-list">
+                    <li>Market Positioning</li>
+                    <li>Competitive Analysis</li>
+                    <li>Product Differentiation</li>
+                    <li>Strategic Roadmapping</li>
+                </ul>
+                <button class="btn" onclick="showModulePreview('strategy')">Preview Module</button>
             </div>
 
-            <!-- Dynamic Content Area -->
-            <div class="content-container">
-                <!-- Module 1: Advanced Product Discovery -->
-                <div class="module-content" id="module-0">
-                    <div class="module-header">
-                        <div class="module-icon">🔍</div>
-                        <div class="module-header-text">
-                            <h2>Advanced Product Discovery</h2>
-                            <p>Master the art of uncovering customer needs and validating solutions</p>
-                        </div>
-                    </div>
-
-                    <div class="learning-path">
-                        <h3>🎯 What You'll Master</h3>
-                        <div class="learning-objectives">
-                            <div class="objective-card">
-                                <div class="icon">🎯</div>
-                                <h4>Customer Problem Identification</h4>
-                                <p>Learn to identify real problems worth solving through systematic discovery</p>
-                            </div>
-                            <div class="objective-card">
-                                <div class="icon">🧪</div>
-                                <h4>Solution Validation</h4>
-                                <p>Test solutions before building to ensure product-market fit</p>
-                            </div>
-                            <div class="objective-card">
-                                <div class="icon">🔄</div>
-                                <h4>Continuous Discovery</h4>
-                                <p>Build discovery into your ongoing product development process</p>
-                            </div>
-                            <div class="objective-card">
-                                <div class="icon">📊</div>
-                                <h4>Evidence-Based Decisions</h4>
-                                <p>Make product decisions based on real customer insights, not assumptions</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Real-World PM Simulator -->
-                    <div class="pm-simulator">
-                        <div class="simulator-header">
-                            <div class="simulator-icon">🎮</div>
-                            <div>
-                                <h3>PM Crisis Simulator</h3>
-                                <p>You're a PM at a fintech startup. User signups are down 40% this month. What's your discovery approach?</p>
-                            </div>
-                        </div>
-
-                        <div class="scenario-builder">
-                            <div class="scenario-tabs">
-                                <div class="scenario-tab active" data-tab="problem">Problem Analysis</div>
-                                <div class="scenario-tab" data-tab="research">Research Plan</div>
-                                <div class="scenario-tab" data-tab="validation">Validation</div>
-                            </div>
-
-                            <div class="tab-content" id="problem-tab">
-                                <h4>Step 1: Problem Hypothesis</h4>
-                                <p>Before rushing into solutions, what are your hypotheses about why signups are down?</p>
-                                
-                                <div class="decision-matrix">
-                                    <span><strong>Hypothesis</strong></span>
-                                    <span><strong>Evidence Available</strong></span>
-                                    <span><strong>Impact</strong></span>
-                                    <span><strong>Priority</strong></span>
-                                </div>
-                                
-                                <div class="decision-matrix" onclick="toggleHypothesis(this)">
-                                    <span>Onboarding flow is too complex</span>
-                                    <span>Drop-off analytics, user session recordings</span>
-                                    <div class="impact-meter"><div class="impact-fill impact-high" style="width: 85%"></div></div>
-                                    <span class="priority-btn">High</span>
-                                </div>
-                                
-                                <div class="decision-matrix" onclick="toggleHypothesis(this)">
-                                    <span>Competitor launched better product</span>
-                                    <span>Market research, competitive analysis</span>
-                                    <div class="impact-meter"><div class="impact-fill impact-medium" style="width: 60%"></div></div>
-                                    <span class="priority-btn">Medium</span>
-                                </div>
-                                
-                                <div class="decision-matrix" onclick="toggleHypothesis(this)">
-                                    <span>Marketing channels changed</span>
-                                    <span>Marketing attribution data</span>
-                                    <div class="impact-meter"><div class="impact-fill impact-low" style="width: 30%"></div></div>
-                                    <span class="priority-btn">Low</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Team Collaboration Simulator -->
-                        <div class="collaboration-sim">
-                            <h4>Cross-Functional Discovery Session</h4>
-                            <div class="team-avatars">
-                                <div class="team-avatar engineering" title="Engineering Lead">EL</div>
-                                <div class="team-avatar design" title="UX Designer">UX</div>
-                                <div class="team-avatar marketing" title="Marketing Manager">MM</div>
-                                <div class="team-avatar data" title="Data Analyst">DA</div>
-                            </div>
-                            
-                            <div class="chat-simulation" id="discoveryChat">
-                                <div class="chat-message">
-                                    <div class="team-avatar data">DA</div>
-                                    <div class="message-bubble">
-                                        The data shows 60% of users drop off at the identity verification step. That's where we're losing people.
-                                    </div>
-                                </div>
-                                <div class="chat-message">
-                                    <div class="team-avatar design">UX</div>
-                                    <div class="message-bubble">
-                                        I've been getting complaints about the document upload flow. Users say it's confusing and takes too long.
-                                    </div>
-                                </div>
-                                <div class="chat-message">
-                                    <div class="team-avatar engineering">EL</div>
-                                    <div class="message-bubble">
-                                        We could simplify the verification process, but compliance requirements limit our options. What alternatives are we considering?
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="message-input">
-                                <input type="text" placeholder="How would you facilitate this discovery discussion as the PM?" id="facilitationInput">
-                                <button class="send-btn" onclick="sendFacilitationMessage()">Send</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Advanced Assessment -->
-                    <div class="assessment-container">
-                        <div class="assessment-header">
-                            <h3>Discovery Mastery Assessment</h3>
-                            <div class="assessment-type">Scenario-Based Evaluation</div>
-                        </div>
-
-                        <div class="question-container">
-                            <div class="question-number">1</div>
-                            <div class="question-text">
-                                You're interviewing customers about a productivity app. A user says: "I love the app, it's perfect!" 
-                                What's your best follow-up question to uncover real insights?
-                            </div>
-                            <div class="answer-options">
-                                <div class="answer-option" onclick="selectAnswer(this, false)">
-                                    <div class="option-letter">A</div>
-                                    <span>"Great! What features do you use most?"</span>
-                                </div>
-                                <div class="answer-option" onclick="selectAnswer(this, false)">
-                                    <div class="option-letter">B</div>
-                                    <span>"Would you recommend it to others?"</span>
-                                </div>
-                                <div class="answer-option" onclick="selectAnswer(this, true)">
-                                    <div class="option-letter">C</div>
-                                    <span>"Walk me through the last time you used it. What were you trying to accomplish?"</span>
-                                </div>
-                                <div class="answer-option" onclick="selectAnswer(this, false)">
-                                    <div class="option-letter">D</div>
-                                    <span>"What would make it even better?"</span>
-                                </div>
-                            </div>
-                            <div class="explanation">
-                                <strong>Why C is correct:</strong> Generic praise doesn't give actionable insights. By asking for specific behavior and context, you uncover the actual jobs-to-be-done and can identify gaps between what they say and what they do. This reveals real usage patterns and pain points.
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Framework Workshop -->
-                    <div class="framework-workshop">
-                        <h3>🛠️ Build Your Customer Discovery Framework</h3>
-                        <div class="workshop-tabs">
-                            <div class="workshop-tab active" data-workshop="interview">Interview Guide</div>
-                            <div class="workshop-tab" data-workshop="canvas">Discovery Canvas</div>
-                            <div class="workshop-tab" data-workshop="validation">Validation Plan</div>
-                        </div>
-
-                        <div class="workshop-content" id="interview-workshop">
-                            <div class="framework-canvas">
-                                <div class="canvas-section">
-                                    <h4>🎯 Interview Objectives</h4>
-                                    <textarea placeholder="What specific insights are you trying to uncover?
-Example: Understanding how customers currently solve [problem] and what frustrates them about existing solutions..."></textarea>
-                                </div>
-                                <div class="canvas-section">
-                                    <h4>👥 Target Participants</h4>
-                                    <textarea placeholder="Who will you interview and why?
-Example: Recent users who signed up but didn't complete onboarding, power users who use the product daily..."></textarea>
-                                </div>
-                                <div class="canvas-section">
-                                    <h4>❓ Key Questions</h4>
-                                    <textarea placeholder="What questions will reveal the most insights?
-Example: 'Tell me about the last time you tried to solve [problem]...'"></textarea>
-                                </div>
-                                <div class="canvas-section">
-                                    <h4>📊 Success Metrics</h4>
-                                    <textarea placeholder="How will you know if these interviews were successful?
-Example: Clear themes emerge from 5+ interviews, actionable insights for product roadmap..."></textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Module 2: Growth & Metrics Mastery -->
-                <div class="module-content" id="module-1">
-                    <div class="module-header">
-                        <div class="module-icon">📈</div>
-                        <div class="module-header-text">
-                            <h2>Growth & Metrics Mastery</h2>
-                            <p>Build data-driven growth engines that scale</p>
-                        </div>
-                    </div>
-
-                    <!-- Interactive Metrics Dashboard Simulation -->
-                    <div class="pm-simulator">
-                        <div class="simulator-header">
-                            <div class="simulator-icon">📊</div>
-                            <div>
-                                <h3>Live Metrics Crisis</h3>
-                                <p>Your SaaS product's key metrics are trending downward. Diagnose and fix the growth funnel.</p>
-                            </div>
-                        </div>
-
-                        <div class="scenario-builder">
-                            <div class="metric-dashboard">
-                                <div class="metric-card critical">
-                                    <div class="metric-value">↓ 15%</div>
-                                    <div class="metric-label">Monthly Signups</div>
-                                    <div class="trend-indicator">📉 Critical</div>
-                                </div>
-                                <div class="metric-card warning">
-                                    <div class="metric-value">$450</div>
-                                    <div class="metric-label">Customer Acquisition Cost</div>
-                                    <div class="trend-indicator">⚠️ Rising</div>
-                                </div>
-                                <div class="metric-card good">
-                                    <div class="metric-value">$2,100</div>
-                                    <div class="metric-label">Customer Lifetime Value</div>
-                                    <div class="trend-indicator">✅ Stable</div>
-                                </div>
-                                <div class="metric-card critical">
-                                    <div class="metric-value">8%</div>
-                                    <div class="metric-label">Monthly Churn</div>
-                                    <div class="trend-indicator">📉 High</div>
-                                </div>
-                            </div>
-
-                            <div class="diagnosis-tool">
-                                <h4>🔍 Root Cause Analysis</h4>
-                                <p>Click on the metrics to drill down and identify the core issues:</p>
-                                
-                                <div class="funnel-analysis">
-                                    <div class="funnel-stage" onclick="analyzeFunnelStage('acquisition')">
-                                        <div class="stage-name">Acquisition</div>
-                                        <div class="stage-value">1,000 visitors</div>
-                                        <div class="conversion-rate">↓ 2.5% signup rate</div>
-                                    </div>
-                                    <div class="funnel-stage" onclick="analyzeFunnelStage('activation')">
-                                        <div class="stage-name">Activation</div>
-                                        <div class="stage-value">25 signups</div>
-                                        <div class="conversion-rate">↓ 40% complete onboarding</div>
-                                    </div>
-                                    <div class="funnel-stage" onclick="analyzeFunnelStage('retention')">
-                                        <div class="stage-name">Retention</div>
-                                        <div class="stage-value">10 activated users</div>
-                                        <div class="conversion-rate">↓ 60% return in week 2</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- A/B Test Simulator -->
-                    <div class="ab-test-simulator">
-                        <h3>🧪 A/B Test Designer</h3>
-                        <p>The onboarding completion rate is only 40%. Design and run an experiment to improve it.</p>
-                        
-                        <div class="test-builder">
-                            <div class="test-section">
-                                <h4>Hypothesis</h4>
-                                <div class="hypothesis-builder">
-                                    <span>If we</span>
-                                    <select>
-                                        <option>simplify the signup form</option>
-                                        <option>add progress indicators</option>
-                                        <option>reduce required fields</option>
-                                        <option>add social proof</option>
-                                    </select>
-                                    <span>then we expect</span>
-                                    <select>
-                                        <option>onboarding completion</option>
-                                        <option>time to first value</option>
-                                        <option>user engagement</option>
-                                    </select>
-                                    <span>to</span>
-                                    <select>
-                                        <option>increase by 10%</option>
-                                        <option>increase by 25%</option>
-                                        <option>double</option>
-                                    </select>
-                                    <span>because</span>
-                                    <input type="text" placeholder="users will feel less overwhelmed...">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Additional modules would continue here with similar enhanced interactivity -->
-                
+            <div class="module-card">
+                <div class="module-icon">🤖</div>
+                <h3>AI-Powered PM Workflows</h3>
+                <p>Leverage AI tools for customer research, market analysis, and strategic planning automation.</p>
+                <ul class="skills-list">
+                    <li>Advanced Prompt Engineering</li>
+                    <li>AI Customer Research</li>
+                    <li>Automated Market Analysis</li>
+                    <li>Strategic Scenario Planning</li>
+                </ul>
+                <button class="btn" onclick="showModulePreview('ai-tools')">Preview Module</button>
             </div>
 
-            <!-- Enhanced Navigation Controls -->
-            <div class="module-navigation-controls">
-                <button class="btn" id="prevModuleBtn" onclick="previousModule()" style="display: none;">
-                    ← Previous Module
-                </button>
-                <div class="nav-info">
-                    <span id="currentModuleInfo">Module 1 of 8</span>
-                </div>
-                <button class="btn btn-secondary" id="nextModuleBtn" onclick="nextModule()">
-                    Next Module →
-                </button>
+            <div class="module-card">
+                <div class="module-icon">🧠</div>
+                <h3>Managing AI Products</h3>
+                <p>Lead AI product development with focus on ethics, bias detection, and model performance management.</p>
+                <ul class="skills-list">
+                    <li>AI Product Strategy</li>
+                    <li>Model Performance Metrics</li>
+                    <li>AI Ethics & Bias Detection</li>
+                    <li>ML Team Collaboration</li>
+                </ul>
+                <button class="btn" onclick="showModulePreview('ai-products')">Preview Module</button>
             </div>
+
+            <div class="module-card">
+                <div class="module-icon">🚀</div>
+                <h3>Product Delivery Excellence</h3>
+                <p>Master cross-functional leadership and launch strategies through realistic team coordination scenarios.</p>
+                <ul class="skills-list">
+                    <li>Cross-Functional Leadership</li>
+                    <li>Agile Product Management</li>
+                    <li>Launch Strategy & Execution</li>
+                    <li>Stakeholder Management</li>
+                </ul>
+                <button class="btn" onclick="showModulePreview('delivery')">Preview Module</button>
+            </div>
+
+            <div class="module-card">
+                <div class="module-icon">🔧</div>
+                <h3>Product Operations</h3>
+                <p>Scale PM processes and optimize team workflows with hands-on tool selection and process design.</p>
+                <ul class="skills-list">
+                    <li>PM Tool Stack Optimization</li>
+                    <li>Process Design & Scaling</li>
+                    <li>Team Workflow Automation</li>
+                    <li>Cross-Team Coordination</li>
+                </ul>
+                <button class="btn" onclick="showModulePreview('operations')">Preview Module</button>
+            </div>
+
+            <div class="module-card">
+                <div class="module-icon">💼</div>
+                <h3>PM Career Mastery</h3>
+                <p>Advance your PM career with executive communication, influence strategies, and professional networking.</p>
+                <ul class="skills-list">
+                    <li>Executive Communication</li>
+                    <li>Influence Without Authority</li>
+                    <li>Strategic Networking</li>
+                    <li>PM Career Advancement</li>
+                </ul>
+                <button class="btn" onclick="showModulePreview('career')">Preview Module</button>
+            </div>
+        </div>
+
+        <div class="stats">
+            <h2>📊 Course Impact</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Interactive Modules</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Practical Exercises</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Real-World Scenarios</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">6-8h</div>
+                    <div class="stat-label">Total Learning Time</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonial">
+            <div class="testimonial-text">
+                "This isn't just another PM course. The interactive simulations and real-world scenarios actually prepare you for the challenges you'll face as a product manager. The AI tools section alone has transformed how I approach market research."
+            </div>
+            <div class="testimonial-author">- Senior Product Manager, Tech Startup</div>
+        </div>
+
+        <div class="cta-section">
+            <h2>🎯 Ready to Build Elite PM Skills?</h2>
+            <p>Start your journey to PM mastery with interactive, practical training that delivers real results.</p>
+            <a href="#" class="launch-btn" onclick="launchFullCourse()">🚀 Launch Full Interactive Course</a>
         </div>
     </div>
 
+    <a href="#" class="full-course-link" onclick="launchFullCourse()">
+        🎯 Start Full Course
+    </a>
+
     <script>
-        // Enhanced Application State
-        class PMCourseApp {
-            constructor() {
-                this.currentModule = 0;
-                this.totalModules = 8;
-                this.userPersona = null;
-                this.completedModules = new Set();
-                this.userProgress = {
-                    timeSpent: 0,
-                    skillsUnlocked: 0,
-                    frameworksMastered: 0,
-                    startTime: null,
-                    moduleStartTime: null
-                };
-                this.modules = [
-                    {
-                        id: 'discovery',
-                        title: '🔍 Advanced Product Discovery',
-                        description: 'Master customer research and validation',
-                        difficulty: 'Foundational',
-                        estimatedTime: '45 min',
-                        skills: ['Customer Interviews', 'Problem Validation', 'Jobs-to-be-Done']
-                    },
-                    {
-                        id: 'metrics',
-                        title: '📈 Growth & Metrics Mastery',
-                        description: 'Build data-driven growth engines',
-                        difficulty: 'Intermediate',
-                        estimatedTime: '60 min',
-                        skills: ['Funnel Analysis', 'A/B Testing', 'Growth Hacking']
-                    },
-                    {
-                        id: 'strategy',
-                        title: '🎯 Strategic Product Thinking',
-                        description: 'Develop winning product strategies',
-                        difficulty: 'Advanced',
-                        estimatedTime: '75 min',
-                        skills: ['Market Positioning', 'Competitive Analysis', 'Vision Setting']
-                    },
-                    {
-                        id: 'ai-tools',
-                        title: '🤖 AI-Powered PM Workflows',
-                        description: 'Leverage AI for PM excellence',
-                        difficulty: 'Intermediate',
-                        estimatedTime: '50 min',
-                        skills: ['Prompt Engineering', 'AI Research', 'Automation']
-                    },
-                    {
-                        id: 'ai-products',
-                        title: '🧠 Managing AI Products',
-                        description: 'Lead AI product development',
-                        difficulty: 'Advanced',
-                        estimatedTime: '90 min',
-                        skills: ['Model Management', 'AI Ethics', 'Data Strategy']
-                    },
-                    {
-                        id: 'delivery',
-                        title: '🚀 Product Delivery Excellence',
-                        description: 'Ship products that delight',
-                        difficulty: 'Intermediate',
-                        estimatedTime: '55 min',
-                        skills: ['Cross-functional Leadership', 'Agile Management', 'Launch Strategy']
-                    },
-                    {
-                        id: 'operations',
-                        title: '🔧 Product Operations',
-                        description: 'Scale PM processes and tools',
-                        difficulty: 'Advanced',
-                        estimatedTime: '40 min',
-                        skills: ['Process Design', 'Tool Selection', 'Team Scaling']
-                    },
-                    {
-                        id: 'career',
-                        title: '💼 PM Career Mastery',
-                        description: 'Advance your PM career',
-                        difficulty: 'All Levels',
-                        estimatedTime: '35 min',
-                        skills: ['Executive Communication', 'Influence', 'Networking']
-                    }
-                ];
-                this.init();
-            }
-
-            init() {
-                this.loadSavedProgress();
-                this.setupEventListeners();
-                this.renderModuleNavigation();
-            }
-
-            setupEventListeners() {
-                // Persona selection
-                document.querySelectorAll('.persona-card').forEach(card => {
-                    card.addEventListener('click', () => this.selectPersona(card));
-                });
-
-                // Keyboard navigation
-                document.addEventListener('keydown', (e) => {
-                    if (e.key === 'ArrowRight' && !e.ctrlKey) {
-                        this.nextModule();
-                    } else if (e.key === 'ArrowLeft' && !e.ctrlKey) {
-                        this.previousModule();
-                    }
-                });
-
-                // Auto-save progress
-                setInterval(() => this.saveProgress(), 30000);
-            }
-
-            selectPersona(card) {
-                // Remove previous selections
-                document.querySelectorAll('.persona-card').forEach(c => c.classList.remove('selected'));
-                
-                // Select current card
-                card.classList.add('selected');
-                this.userPersona = card.dataset.persona;
-                
-                // Enable start button
-                document.getElementById('startBtn').disabled = false;
-                
-                // Customize content based on persona
-                this.customizeForPersona();
-            }
-
-            customizeForPersona() {
-                const personaConfig = {
-                    'new-pm': {
-                        focusAreas: ['discovery', 'metrics', 'delivery'],
-                        skillLevel: 'beginner',
-                        avatar: 'NP'
-                    },
-                    'experienced-pm': {
-                        focusAreas: ['strategy', 'ai-tools', 'operations'],
-                        skillLevel: 'intermediate',
-                        avatar: 'EP'
-                    },
-                    'senior-pm': {
-                        focusAreas: ['strategy', 'ai-products', 'career'],
-                        skillLevel: 'advanced',
-                        avatar: 'SP'
-                    },
-                    'entrepreneur': {
-                        focusAreas: ['discovery', 'strategy', 'metrics'],
-                        skillLevel: 'mixed',
-                        avatar: 'EN'
-                    }
-                };
-
-                const config = personaConfig[this.userPersona];
-                if (config) {
-                    // Customize module recommendations
-                    this.modules.forEach(module => {
-                        module.recommended = config.focusAreas.includes(module.id);
-                    });
-                }
-            }
-
-            startPersonalizedJourney() {
-                document.getElementById('onboarding').style.display = 'none';
-                document.getElementById('platformInterface').style.display = 'block';
-                
-                // Set user profile
-                const personaNames = {
-                    'new-pm': 'Aspiring PM',
-                    'experienced-pm': 'Experienced PM',
-                    'senior-pm': 'Senior PM',
-                    'entrepreneur': 'Entrepreneur'
-                };
-                
-                document.getElementById('userPersona').textContent = personaNames[this.userPersona];
-                document.getElementById('userAvatar').textContent = this.userPersona.charAt(0).toUpperCase() + this.userPersona.charAt(4).toUpperCase();
-                
-                this.userProgress.startTime = Date.now();
-                this.userProgress.moduleStartTime = Date.now();
-                
-                this.showModule(0);
-                this.updateProgress();
-                
-                this.showNotification('Welcome! Your personalized PM journey begins now.', 'success');
-            }
-
-            renderModuleNavigation() {
-                const nav = document.getElementById('moduleNav');
-                nav.innerHTML = '';
-                
-                this.modules.forEach((module, index) => {
-                    const moduleEl = document.createElement('div');
-                    moduleEl.className = `nav-module ${index === this.currentModule ? 'active' : ''} ${this.completedModules.has(index) ? 'completed' : ''}`;
-                    moduleEl.onclick = () => this.showModule(index);
-                    
-                    moduleEl.innerHTML = `
-                        <div class="module-title">${module.title}</div>
-                        <div class="module-description">${module.description}</div>
-                        <div class="module-meta">
-                            <span class="difficulty">${module.difficulty}</span> • 
-                            <span class="time">${module.estimatedTime}</span>
-                            ${module.recommended ? '<span class="recommended">⭐ Recommended</span>' : ''}
-                        </div>
-                        <div class="module-progress">
-                            <div class="module-progress-fill" style="width: ${this.completedModules.has(index) ? '100%' : '0%'}"></div>
-                        </div>
-                    `;
-                    
-                    nav.appendChild(moduleEl);
-                });
-            }
-
-            showModule(index) {
-                if (index < 0 || index >= this.totalModules) return;
-                
-                // Track time in previous module
-                if (this.userProgress.moduleStartTime) {
-                    const timeSpent = Date.now() - this.userProgress.moduleStartTime;
-                    this.userProgress.timeSpent += timeSpent;
-                }
-                
-                // Hide all modules
-                document.querySelectorAll('.module-content').forEach(m => m.classList.remove('active'));
-                
-                // Show selected module
-                const moduleEl = document.getElementById(`module-${index}`);
-                if (moduleEl) {
-                    moduleEl.classList.add('active');
-                }
-                
-                // Update navigation
-                document.querySelectorAll('.nav-module').forEach((el, i) => {
-                    el.classList.toggle('active', i === index);
-                });
-                
-                this.currentModule = index;
-                this.userProgress.moduleStartTime = Date.now();
-                
-                this.updateNavigationControls();
-                this.updateProgress();
-                this.saveProgress();
-            }
-
-            nextModule() {
-                if (this.currentModule < this.totalModules - 1) {
-                    this.completedModules.add(this.currentModule);
-                    this.showModule(this.currentModule + 1);
-                    this.showNotification(`Great progress! Module ${this.currentModule} completed.`, 'success');
-                }
-            }
-
-            previousModule() {
-                if (this.currentModule > 0) {
-                    this.showModule(this.currentModule - 1);
-                }
-            }
-
-            updateNavigationControls() {
-                const prevBtn = document.getElementById('prevModuleBtn');
-                const nextBtn = document.getElementById('nextModuleBtn');
-                const info = document.getElementById('currentModuleInfo');
-                
-                prevBtn.style.display = this.currentModule === 0 ? 'none' : 'inline-block';
-                nextBtn.style.display = this.currentModule === this.totalModules - 1 ? 'none' : 'inline-block';
-                info.textContent = `Module ${this.currentModule + 1} of ${this.totalModules}`;
-            }
-
-            updateProgress() {
-                const progressPercentage = Math.round((this.completedModules.size / this.totalModules) * 100);
-                
-                // Update progress bar
-                document.getElementById('overallProgress').style.width = `${progressPercentage}%`;
-                document.querySelector('.progress-percentage').textContent = `${progressPercentage}% Complete`;
-                
-                // Update stats
-                document.getElementById('completedModules').textContent = this.completedModules.size;
-                document.getElementById('timeSpent').textContent = Math.round(this.userProgress.timeSpent / (1000 * 60 * 60)) + 'h';
-                document.getElementById('skillsUnlocked').textContent = this.userProgress.skillsUnlocked;
-                document.getElementById('frameworksMastered').textContent = this.userProgress.frameworksMastered;
-                
-                // Update level
-                const level = Math.floor(this.completedModules.size / 2) + 1;
-                document.getElementById('userLevel').textContent = `Level ${level}`;
-                
-                // Re-render navigation to show completed modules
-                this.renderModuleNavigation();
-            }
-
-            showNotification(message, type = 'info') {
-                const notification = document.createElement('div');
-                notification.className = `notification ${type}`;
-                notification.innerHTML = `
-                    <div style="font-weight: 600; margin-bottom: 5px;">${this.getNotificationTitle(type)}</div>
-                    <div>${message}</div>
-                `;
-                
-                document.body.appendChild(notification);
-                
-                setTimeout(() => {
-                    notification.style.animation = 'slideInRight 0.3s ease reverse';
-                    setTimeout(() => notification.remove(), 300);
-                }, 3000);
-            }
-
-            getNotificationTitle(type) {
-                const titles = {
-                    success: '🎉 Success',
-                    warning: '⚠️ Notice',
-                    error: '❌ Error',
-                    info: 'ℹ️ Info'
-                };
-                return titles[type] || titles.info;
-            }
-
-            saveProgress() {
-                try {
-                    const progressData = {
-                        currentModule: this.currentModule,
-                        completedModules: Array.from(this.completedModules),
-                        userPersona: this.userPersona,
-                        userProgress: this.userProgress,
-                        timestamp: Date.now()
-                    };
-                    
-                    // Try localStorage first, fallback to sessionStorage, then memory
-                    if (this.isStorageAvailable('localStorage')) {
-                        localStorage.setItem('pmCourseProgress', JSON.stringify(progressData));
-                    } else if (this.isStorageAvailable('sessionStorage')) {
-                        sessionStorage.setItem('pmCourseProgress', JSON.stringify(progressData));
-                    } else {
-                        // Store in memory as fallback
-                        window.pmCourseProgressBackup = progressData;
-                    }
-                } catch (e) {
-                    console.log('Progress saving disabled in sandbox mode - using session memory');
-                    window.pmCourseProgressBackup = {
-                        currentModule: this.currentModule,
-                        completedModules: Array.from(this.completedModules),
-                        userPersona: this.userPersona,
-                        userProgress: this.userProgress,
-                        timestamp: Date.now()
-                    };
-                }
-            }
-
-            loadSavedProgress() {
-                try {
-                    let saved = null;
-                    
-                    // Try different storage methods
-                    if (this.isStorageAvailable('localStorage')) {
-                        saved = localStorage.getItem('pmCourseProgress');
-                    } else if (this.isStorageAvailable('sessionStorage')) {
-                        saved = sessionStorage.getItem('pmCourseProgress');
-                    } else if (window.pmCourseProgressBackup) {
-                        saved = JSON.stringify(window.pmCourseProgressBackup);
-                    }
-                    
-                    if (saved) {
-                        const data = JSON.parse(saved);
-                        this.currentModule = data.currentModule || 0;
-                        this.completedModules = new Set(data.completedModules || []);
-                        this.userPersona = data.userPersona;
-                        this.userProgress = { ...this.userProgress, ...data.userProgress };
-                        
-                        // Skip onboarding if user has progress
-                        if (this.userPersona) {
-                            this.startPersonalizedJourney();
-                        }
-                    }
-                } catch (e) {
-                    console.log('Storage not available - using fresh session');
-                }
-            }
-
-            isStorageAvailable(type) {
-                try {
-                    const storage = window[type];
-                    const testKey = '__storage_test__';
-                    storage.setItem(testKey, 'test');
-                    storage.removeItem(testKey);
-                    return true;
-                } catch (e) {
-                    return false;
-                }
-            }
-        }
-
-        // Interactive Learning Functions
-        function toggleHypothesis(element) {
-            element.classList.toggle('selected');
-            element.style.background = element.classList.contains('selected') ? '#667eea15' : '';
-            element.style.borderColor = element.classList.contains('selected') ? '#667eea' : '';
-            
-            // Provide feedback
-            if (element.classList.contains('selected')) {
-                const hypothesisText = element.querySelector('span').textContent;
-                if (hypothesisText.includes('Onboarding flow')) {
-                    showDetailedFeedback('Excellent choice! Onboarding optimization often has the highest impact on conversion rates.');
-                }
-            }
-        }
-
-        function analyzeFunnelStage(stage) {
-            const insights = {
-                acquisition: {
-                    title: 'Acquisition Analysis',
-                    problem: 'Signup conversion rate dropped from 4% to 2.5%',
-                    causes: ['Ad targeting became less precise', 'Landing page messaging misaligned', 'Increased competition'],
-                    solutions: ['A/B test new landing page variants', 'Refine ad targeting parameters', 'Analyze competitor positioning']
+        function showModulePreview(moduleId) {
+            const previews = {
+                'discovery': {
+                    title: '🔍 Product Discovery Preview',
+                    content: `
+                        <h3>What You'll Experience:</h3>
+                        <ul>
+                            <li><strong>Crisis Scenario:</strong> Handle a 40% drop in user signups</li>
+                            <li><strong>Customer Interview Simulation:</strong> Practice real discovery techniques</li>
+                            <li><strong>Cross-Functional Workshop:</strong> Coordinate with engineering, design, and marketing</li>
+                            <li><strong>Framework Building:</strong> Create reusable discovery templates</li>
+                        </ul>
+                        <p><strong>Key Learning:</strong> Transform from assumption-driven to evidence-based product decisions.</p>
+                    `
                 },
-                activation: {
-                    title: 'Activation Analysis', 
-                    problem: 'Only 40% complete onboarding (down from 65%)',
-                    causes: ['Added new verification step', 'Mobile experience degraded', 'User expectations misaligned'],
-                    solutions: ['Simplify verification flow', 'Optimize mobile onboarding', 'Set clearer expectations upfront']
+                'metrics': {
+                    title: '📈 Growth & Metrics Preview',
+                    content: `
+                        <h3>What You'll Experience:</h3>
+                        <ul>
+                            <li><strong>Live Metrics Crisis:</strong> Diagnose and fix funnel problems in real-time</li>
+                            <li><strong>A/B Test Designer:</strong> Build experiments with proper statistical rigor</li>
+                            <li><strong>Dashboard Simulation:</strong> Analyze complex SaaS metrics</li>
+                            <li><strong>Growth Strategy Workshop:</strong> Design product-led growth loops</li>
+                        </ul>
+                        <p><strong>Key Learning:</strong> Master the metrics that drive sustainable business growth.</p>
+                    `
                 },
-                retention: {
-                    title: 'Retention Analysis',
-                    problem: 'Week 2 retention dropped to 60% (from 80%)',
-                    causes: ['Time-to-value too long', 'Feature discovery poor', 'Onboarding incomplete'],
-                    solutions: ['Reduce time to first value', 'Improve in-app guidance', 'Follow-up email sequence']
+                'strategy': {
+                    title: '🎯 Strategic Thinking Preview',
+                    content: `
+                        <h3>What You'll Experience:</h3>
+                        <ul>
+                            <li><strong>Market Entry Simulation:</strong> Develop strategy for new markets</li>
+                            <li><strong>Competitive Analysis Workshop:</strong> Position against incumbents</li>
+                            <li><strong>Strategic Decision Matrix:</strong> Navigate complex business constraints</li>
+                            <li><strong>Vision-to-Roadmap Translation:</strong> Connect strategy to execution</li>
+                        </ul>
+                        <p><strong>Key Learning:</strong> Think strategically about product direction and competitive advantage.</p>
+                    `
+                },
+                'ai-tools': {
+                    title: '🤖 AI-Powered Workflows Preview',
+                    content: `
+                        <h3>What You'll Experience:</h3>
+                        <ul>
+                            <li><strong>Prompt Engineering Lab:</strong> Master AI for PM workflows</li>
+                            <li><strong>Customer Research Automation:</strong> AI-powered sentiment analysis</li>
+                            <li><strong>Market Intelligence:</strong> Automated competitive monitoring</li>
+                            <li><strong>Strategic Scenario Generator:</strong> AI-assisted planning</li>
+                        </ul>
+                        <p><strong>Key Learning:</strong> Leverage AI to 10x your PM productivity and insights.</p>
+                    `
+                },
+                'ai-products': {
+                    title: '🧠 AI Product Management Preview',
+                    content: `
+                        <h3>What You'll Experience:</h3>
+                        <ul>
+                            <li><strong>AI Ethics Decision Tree:</strong> Navigate bias and fairness challenges</li>
+                            <li><strong>Model Performance Dashboard:</strong> Monitor AI product health</li>
+                            <li><strong>ML Team Collaboration:</strong> Bridge business and technical requirements</li>
+                            <li><strong>AI Product Strategy Canvas:</strong> Design AI-first products</li>
+                        </ul>
+                        <p><strong>Key Learning:</strong> Lead AI product development with confidence and ethical clarity.</p>
+                    `
+                },
+                'delivery': {
+                    title: '🚀 Product Delivery Preview',
+                    content: `
+                        <h3>What You'll Experience:</h3>
+                        <ul>
+                            <li><strong>Launch Crisis Management:</strong> Handle last-minute blockers</li>
+                            <li><strong>Cross-Functional Coordination:</strong> Align diverse stakeholders</li>
+                            <li><strong>PRD Workshop:</strong> Write requirements that actually work</li>
+                            <li><strong>Go-to-Market Simulation:</strong> Coordinate complex launches</li>
+                        </ul>
+                        <p><strong>Key Learning:</strong> Execute flawlessly from concept to customer.</p>
+                    `
+                },
+                'operations': {
+                    title: '🔧 Product Operations Preview',
+                    content: `
+                        <h3>What You'll Experience:</h3>
+                        <ul>
+                            <li><strong>Tool Selection Matrix:</strong> Choose the right PM stack</li>
+                            <li><strong>Process Design Workshop:</strong> Scale PM workflows</li>
+                            <li><strong>Team Scaling Simulator:</strong> Handle rapid growth challenges</li>
+                            <li><strong>Efficiency Optimization:</strong> Eliminate PM workflow friction</li>
+                        </ul>
+                        <p><strong>Key Learning:</strong> Build scalable PM operations that support team growth.</p>
+                    `
+                },
+                'career': {
+                    title: '💼 Career Mastery Preview',
+                    content: `
+                        <h3>What You'll Experience:</h3>
+                        <ul>
+                            <li><strong>Executive Pitch Simulator:</strong> Present to C-level stakeholders</li>
+                            <li><strong>Influence Workshop:</strong> Drive results without authority</li>
+                            <li><strong>Personal Brand Builder:</strong> Position yourself strategically</li>
+                            <li><strong>Career Path Planner:</strong> Navigate PM career advancement</li>
+                        </ul>
+                        <p><strong>Key Learning:</strong> Accelerate your PM career through strategic positioning.</p>
+                    `
                 }
             };
-            
-            const insight = insights[stage];
-            showFunnelAnalysis(insight);
+
+            const preview = previews[moduleId];
+            showModal(preview.title, preview.content);
         }
 
-        function showFunnelAnalysis(insight) {
+        function showModal(title, content) {
             const modal = document.createElement('div');
             modal.style.cssText = `
                 position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-                background: rgba(0,0,0,0.8); z-index: 1000;
+                background: rgba(0,0,0,0.8); z-index: 10000;
                 display: flex; align-items: center; justify-content: center;
-                animation: fadeIn 0.3s ease;
+                animation: fadeIn 0.3s ease; padding: 20px;
             `;
             
             modal.innerHTML = `
-                <div style="background: white; border-radius: 15px; padding: 30px; max-width: 600px; margin: 20px;">
-                    <h3 style="margin-bottom: 20px; color: #2c3e50;">${insight.title}</h3>
-                    <div style="background: #fff3cd; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
-                        <strong>Problem:</strong> ${insight.problem}
-                    </div>
-                    <div style="margin-bottom: 20px;">
-                        <strong>Potential Causes:</strong>
-                        <ul style="margin-top: 10px; padding-left: 20px;">
-                            ${insight.causes.map(cause => `<li>${cause}</li>`).join('')}
-                        </ul>
-                    </div>
-                    <div style="margin-bottom: 20px;">
-                        <strong>Recommended Solutions:</strong>
-                        <ul style="margin-top: 10px; padding-left: 20px;">
-                            ${insight.solutions.map(solution => `<li>${solution}</li>`).join('')}
-                        </ul>
-                    </div>
-                    <button onclick="this.parentElement.parentElement.remove()" class="btn" style="width: 100%;">
-                        Close Analysis
+                <div style="background: white; border-radius: 20px; padding: 40px; max-width: 600px; width: 100%; max-height: 80vh; overflow-y: auto;">
+                    <h2 style="margin-bottom: 20px; color: #2c3e50;">${title}</h2>
+                    <div style="color: #2c3e50; line-height: 1.6;">${content}</div>
+                    <button onclick="this.parentElement.parentElement.remove()" 
+                            style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; padding: 15px 30px; border-radius: 25px; cursor: pointer; font-size: 1rem; font-weight: 600; margin-top: 30px; width: 100%;">
+                        Close Preview
                     </button>
                 </div>
             `;
@@ -1872,411 +591,36 @@ Example: Clear themes emerge from 5+ interviews, actionable insights for product
             document.body.appendChild(modal);
         }
 
-        function sendFacilitationMessage() {
-            const input = document.getElementById('facilitationInput');
-            const message = input.value.trim();
-            if (!message) return;
+        function launchFullCourse() {
+            // This will be updated with the actual full course link
+            alert('🚀 Loading full interactive course...\n\nThis will redirect to the complete platform with all simulations, exercises, and assessments.');
             
-            const chat = document.getElementById('discoveryChat');
-            
-            // Add user message
-            const userMessage = document.createElement('div');
-            userMessage.className = 'chat-message user';
-            userMessage.innerHTML = `
-                <div class="team-avatar" style="background: var(--primary-gradient);">PM</div>
-                <div class="message-bubble">${message}</div>
-            `;
-            chat.appendChild(userMessage);
-            
-            // Scroll to bottom
-            chat.scrollTop = chat.scrollHeight;
-            
-            // Clear input
-            input.value = '';
-            
-            // Simulate team responses based on message content
-            setTimeout(() => {
-                const responses = generateTeamResponses(message);
-                responses.forEach((response, index) => {
-                    setTimeout(() => {
-                        const teamMessage = document.createElement('div');
-                        teamMessage.className = 'chat-message';
-                        teamMessage.innerHTML = `
-                            <div class="team-avatar ${response.role}">${response.avatar}</div>
-                            <div class="message-bubble">${response.message}</div>
-                        `;
-                        chat.appendChild(teamMessage);
-                        chat.scrollTop = chat.scrollHeight;
-                    }, index * 1500);
-                });
-            }, 1000);
+            // For now, show what the full course includes
+            showModal('🎯 Full Course Features', `
+                <h3>Complete Interactive Experience:</h3>
+                <ul style="text-align: left; margin: 20px 0;">
+                    <li><strong>✅ Personalized Learning Paths</strong> - Adapted to your experience level</li>
+                    <li><strong>🎮 Real-World Simulations</strong> - Handle actual PM crises and decisions</li>
+                    <li><strong>👥 Cross-Functional Practice</strong> - Work with simulated engineering, design, marketing teams</li>
+                    <li><strong>📊 Interactive Dashboards</strong> - Hands-on metrics analysis and optimization</li>
+                    <li><strong>🛠️ Framework Workshops</strong> - Build reusable PM templates and tools</li>
+                    <li><strong>🏆 Progress Tracking</strong> - Skill unlocks, achievements, and competency validation</li>
+                    <li><strong>📈 Performance Analytics</strong> - Track your learning progress and skill development</li>
+                    <li><strong>🎯 Practical Assessments</strong> - Scenario-based evaluations with detailed feedback</li>
+                </ul>
+                <p style="margin-top: 20px;"><strong>Ready to transform your PM skills?</strong></p>
+            `);
         }
 
-        function generateTeamResponses(message) {
-            const responses = [];
-            
-            if (message.toLowerCase().includes('test') || message.toLowerCase().includes('experiment')) {
-                responses.push({
-                    role: 'data',
-                    avatar: 'DA',
-                    message: 'Great idea! I can set up the tracking for that experiment. We\'ll need to measure both completion rates and user satisfaction.'
-                });
-            }
-            
-            if (message.toLowerCase().includes('user') || message.toLowerCase().includes('research')) {
-                responses.push({
-                    role: 'design',
-                    avatar: 'UX',
-                    message: 'I can conduct user interviews to understand the friction points better. When should we schedule those?'
-                });
-            }
-            
-            if (message.toLowerCase().includes('build') || message.toLowerCase().includes('develop')) {
-                responses.push({
-                    role: 'engineering',
-                    avatar: 'EL',
-                    message: 'That sounds feasible. Let me estimate the development effort and potential technical challenges.'
-                });
-            }
-            
-            return responses;
-        }
-
-        function selectAnswer(element, isCorrect) {
-            // Remove previous selections
-            const container = element.closest('.answer-options');
-            container.querySelectorAll('.answer-option').forEach(option => {
-                option.classList.remove('selected', 'correct', 'incorrect');
-            });
-            
-            // Mark selection
-            element.classList.add('selected');
-            
-            // Show results after brief delay
-            setTimeout(() => {
-                container.querySelectorAll('.answer-option').forEach(option => {
-                    const optionIsCorrect = option.onclick.toString().includes('true');
-                    option.classList.add(optionIsCorrect ? 'correct' : 'incorrect');
-                });
-                
-                // Show explanation
-                const explanation = element.closest('.question-container').querySelector('.explanation');
-                explanation.classList.add('show');
-                
-                // Update progress if correct
-                if (isCorrect) {
-                    app.userProgress.skillsUnlocked++;
-                    app.showNotification('Correct! You\'ve unlocked a new discovery skill.', 'success');
-                }
-            }, 500);
-        }
-
-        function showDetailedFeedback(message) {
-            const feedback = document.createElement('div');
-            feedback.style.cssText = `
-                position: fixed; bottom: 20px; left: 20px; right: 20px;
-                background: linear-gradient(135deg, #4CAF50, #81C784);
-                color: white; padding: 15px 20px; border-radius: 12px;
-                box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-                animation: slideInUp 0.3s ease; z-index: 1000;
-            `;
-            feedback.innerHTML = `
-                <div style="font-weight: 600; margin-bottom: 5px;">💡 PM Insight</div>
-                <div>${message}</div>
-            `;
-            
-            document.body.appendChild(feedback);
-            setTimeout(() => feedback.remove(), 4000);
-        }
-
-        // Advanced CSS Animations
+        // Add CSS for fadeIn animation
         const style = document.createElement('style');
         style.textContent = `
-            @keyframes slideInUp {
-                from { transform: translateY(100%); opacity: 0; }
-                to { transform: translateY(0); opacity: 1; }
-            }
-            
-            .metric-card {
-                background: white;
-                border-radius: 12px;
-                padding: 20px;
-                text-align: center;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-                transition: all 0.3s ease;
-                border-left: 4px solid transparent;
-            }
-            
-            .metric-card:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            }
-            
-            .metric-card.critical {
-                border-left-color: #f44336;
-                background: linear-gradient(135deg, #fff, #ffebee);
-            }
-            
-            .metric-card.warning {
-                border-left-color: #ff9800;
-                background: linear-gradient(135deg, #fff, #fff8e1);
-            }
-            
-            .metric-card.good {
-                border-left-color: #4CAF50;
-                background: linear-gradient(135deg, #fff, #e8f5e8);
-            }
-            
-            .metric-dashboard {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                gap: 20px;
-                margin: 20px 0;
-            }
-            
-            .metric-value {
-                font-size: 2rem;
-                font-weight: bold;
-                margin-bottom: 5px;
-            }
-            
-            .metric-label {
-                font-size: 0.9rem;
-                color: #666;
-                margin-bottom: 8px;
-            }
-            
-            .trend-indicator {
-                font-size: 0.8rem;
-                padding: 4px 8px;
-                border-radius: 12px;
-                font-weight: 600;
-            }
-            
-            .funnel-analysis {
-                display: flex;
-                gap: 20px;
-                margin: 20px 0;
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-            
-            .funnel-stage {
-                background: white;
-                border-radius: 12px;
-                padding: 20px;
-                text-align: center;
-                cursor: pointer;
-                transition: all 0.3s ease;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-                min-width: 150px;
-                border: 2px solid transparent;
-            }
-            
-            .funnel-stage:hover {
-                transform: translateY(-5px);
-                border-color: #667eea;
-                box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            }
-            
-            .stage-name {
-                font-weight: 600;
-                margin-bottom: 8px;
-                color: #2c3e50;
-            }
-            
-            .stage-value {
-                font-size: 1.5rem;
-                font-weight: bold;
-                margin-bottom: 5px;
-                color: #667eea;
-            }
-            
-            .conversion-rate {
-                font-size: 0.9rem;
-                color: #e74c3c;
-                font-weight: 500;
-            }
-            
-            .ab-test-simulator {
-                background: linear-gradient(135deg, #667eea10, #764ba210);
-                border-radius: 15px;
-                padding: 30px;
-                margin: 30px 0;
-                border: 2px solid #667eea30;
-            }
-            
-            .test-builder {
-                background: white;
-                border-radius: 12px;
-                padding: 25px;
-                margin: 20px 0;
-            }
-            
-            .hypothesis-builder {
-                display: flex;
-                flex-wrap: wrap;
-                align-items: center;
-                gap: 10px;
-                padding: 20px;
-                background: #f8f9fa;
-                border-radius: 8px;
-                font-size: 1rem;
-            }
-            
-            .hypothesis-builder select,
-            .hypothesis-builder input {
-                padding: 8px 12px;
-                border: 2px solid #e9ecef;
-                border-radius: 6px;
-                font-size: 1rem;
-                outline: none;
-                transition: border-color 0.3s ease;
-            }
-            
-            .hypothesis-builder select:focus,
-            .hypothesis-builder input:focus {
-                border-color: #667eea;
-            }
-            
-            .hypothesis-builder input {
-                min-width: 200px;
-                flex: 1;
-            }
-            
-            .selected {
-                background: #667eea15 !important;
-                border-color: #667eea !important;
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
             }
         `;
         document.head.appendChild(style);
-
-        // Global functions for backward compatibility
-        window.startPersonalizedJourney = function() {
-            app.startPersonalizedJourney();
-        };
-
-        window.nextModule = function() {
-            app.nextModule();
-        };
-
-        window.previousModule = function() {
-            app.previousModule();
-        };
-
-        // Initialize the application
-        const app = new PMCourseApp();
-
-        // Add motivational system
-        setInterval(() => {
-            if (app.completedModules.size > 0 && Math.random() < 0.05) {
-                const motivations = [
-                    "🚀 You're building world-class PM skills!",
-                    "💪 Each module makes you a stronger product leader!",
-                    "🎯 Your customers will benefit from this learning!",
-                    "🌟 PM excellence is a journey, not a destination!",
-                    "🔥 You're investing in your future success!"
-                ];
-                const randomMotivation = motivations[Math.floor(Math.random() * motivations.length)];
-                app.showNotification(randomMotivation, 'info');
-            }
-        }, 45000);
-
-        // Achievement system with sandbox-safe storage
-        function checkAchievements() {
-            const achievements = [
-                {
-                    id: 'first_module',
-                    name: 'Getting Started',
-                    description: 'Completed your first module',
-                    condition: () => app.completedModules.size >= 1,
-                    reward: 'Discovery Expert badge'
-                },
-                {
-                    id: 'half_way',
-                    name: 'Halfway Hero',
-                    description: 'Completed 50% of the course',
-                    condition: () => app.completedModules.size >= 4,
-                    reward: 'Strategic Thinker badge'
-                },
-                {
-                    id: 'course_master',
-                    name: 'PM Master',
-                    description: 'Completed the entire course',
-                    condition: () => app.completedModules.size >= 8,
-                    reward: 'Elite PM Certificate'
-                }
-            ];
-
-            achievements.forEach(achievement => {
-                const achievementKey = `achievement_${achievement.id}`;
-                let hasAchievement = false;
-                
-                try {
-                    if (app.isStorageAvailable('localStorage')) {
-                        hasAchievement = localStorage.getItem(achievementKey) === 'true';
-                    } else if (app.isStorageAvailable('sessionStorage')) {
-                        hasAchievement = sessionStorage.getItem(achievementKey) === 'true';
-                    } else {
-                        hasAchievement = window.pmAchievements && window.pmAchievements[achievementKey];
-                    }
-                } catch (e) {
-                    // Storage not available, use memory
-                    window.pmAchievements = window.pmAchievements || {};
-                    hasAchievement = window.pmAchievements[achievementKey];
-                }
-                
-                if (achievement.condition() && !hasAchievement) {
-                    try {
-                        if (app.isStorageAvailable('localStorage')) {
-                            localStorage.setItem(achievementKey, 'true');
-                        } else if (app.isStorageAvailable('sessionStorage')) {
-                            sessionStorage.setItem(achievementKey, 'true');
-                        } else {
-                            window.pmAchievements = window.pmAchievements || {};
-                            window.pmAchievements[achievementKey] = true;
-                        }
-                    } catch (e) {
-                        console.log('Achievement storage disabled in sandbox mode');
-                    }
-                    
-                    app.showNotification(`🏆 Achievement Unlocked: ${achievement.name}! You've earned: ${achievement.reward}`, 'success');
-                }
-            });
-        }
-
-        // Check achievements periodically
-        setInterval(checkAchievements, 5000);
-
-        // Enhanced error handling and recovery
-        window.addEventListener('error', (e) => {
-            console.error('Application error:', e);
-            app.showNotification('Something went wrong, but your progress is saved. Please refresh if issues persist.', 'warning');
-        });
-
-        // Page visibility API to pause timers when tab is not active
-        document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-                // Pause timers
-                app.userProgress.pausedAt = Date.now();
-            } else {
-                // Resume timers
-                if (app.userProgress.pausedAt) {
-                    const pauseDuration = Date.now() - app.userProgress.pausedAt;
-                    app.userProgress.moduleStartTime += pauseDuration;
-                    delete app.userProgress.pausedAt;
-                }
-            }
-        });
-
-        // Prevent accidental page refresh
-        window.addEventListener('beforeunload', (e) => {
-            if (app.completedModules.size > 0) {
-                e.preventDefault();
-                e.returnValue = '';
-                return 'You have unsaved progress. Are you sure you want to leave?';
-            }
-        });
     </script>
 </body>
 </html>
